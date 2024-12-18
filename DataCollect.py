@@ -34,9 +34,14 @@ class Reciver():
         return data
 
 def main():
-    print("hello world")
     rec = Reciver()
-    print(rec.recive())
+    print("starting reading")
+    while True:
+        try:
+            print(rec.recive())
+        except KeyboardInterrupt:
+            print("Ending reading....")
+    
     return
 
 if __name__ == "__main__":
