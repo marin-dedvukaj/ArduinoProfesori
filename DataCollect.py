@@ -9,7 +9,7 @@ class Reciver():
         self.baudRate = 9600
         pass
 
-    
+    #scann the ports on the computer and 
     def portScaner(self):
         self.arduinoPort = None
         ports = serial.tools.list_ports.comports()
@@ -20,15 +20,18 @@ class Reciver():
         if not self.arduinoPort:
             print("No Arduino found.")
         self.ser = serial.Serial(self.arduino_port,self.baudRate,timeout=10)
+        time.sleep(2)
         return None
 
     def recive(self):
         try:
+            data = self.ser.readline().decode("utf-8").strip().split("/")
             pass
         except Exception as hi:
             print(hi)
+            self.portScaner()
             
-        return
+        return data
 
 def main():
     print("hello world")
