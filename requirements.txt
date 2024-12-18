@@ -1,0 +1,3 @@
+Pyserial
+serial
+time
