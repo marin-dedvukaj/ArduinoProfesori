@@ -27,8 +27,8 @@ class Reciver():
         try:
             data = self.ser.readline().decode("utf-8").strip().split("/")
             pass
-        except Exception as hi:
-            print(hi)
+        except Exception as exc:
+            print(exc)
             self.portScaner()
             
         return data
