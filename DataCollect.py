@@ -5,12 +5,12 @@ import time
 class Reciver():
     
     def __init__(self):
-        self.portScaner()
+        self.portScanner()
         self.baudRate = 9600
         pass
 
     #scann the ports on the computer and 
-    def portScaner(self):
+    def portScanner(self):
         self.arduinoPort = None
         ports = serial.tools.list_ports.comports()
         for port in ports:
@@ -23,14 +23,14 @@ class Reciver():
         time.sleep(2)
         return None
 
-    def recive(self):
+    def receive(self):
         try:
             data = self.ser.readline().decode("utf-8").strip().split("/")
             pass
         except Exception as exc:
             print(exc)
-            self.portScaner()
-            
+            self.portScanner()
+
         return data
 
 def main():
@@ -38,7 +38,7 @@ def main():
     print("starting reading")
     while True:
         try:
-            print(rec.recive())
+            print(rec.receive())
         except KeyboardInterrupt:
             print("Ending reading....")
     
